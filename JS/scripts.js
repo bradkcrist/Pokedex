@@ -21,8 +21,10 @@ let pokemonList = [
     }
 ];
 // Adding loop for pokemon name and height greater then 2.5
- for (let i = 0; i < 3; i++) {
-     document.write(pokemonList[i].name);
+for (let i = 0; i < pokemonList.length; i++) {
+    document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ' + '<br>')
+    if (pokemonList[i].height > 2.5)
+        document.write("Wow thats a big pokemon");
 }
 
 // for (let i=0; i < pokemonList.length; i++){
