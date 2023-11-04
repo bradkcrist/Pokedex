@@ -20,20 +20,13 @@ let pokemonList = [
         type: ['Dragon', 'Electric']
     }
 ];
-// Adding loop for pokemon name and height greater then 2.5
+// Adding FOR loop pokemon name and height greater then 2.5
+// Displaying else if for any other pokemon with height lower then 2.0
+
 for (let i = 0; i < pokemonList.length; i++) {
-    document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ' + '<br>')
     if (pokemonList[i].height > 2.5)
-        document.write("Wow thats a big pokemon");
+        document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')' + "Wow thats a big pokemon" +  '<br>')
+ else if (pokemonList[i].height < 2.0) {
+    document.write(pokemonList[i].name + '(height' + pokemonList[i].height + ') ' + '<br>')
 }
-
-// for (let i=0; i < pokemonList.length; i++){
-//     if (pokemonList[i].height < 2.5 && pokemonList[i].height > 2.0){
-//       document.write(pokemonList[i].name + " is a big pokemon");
-//     }else if (pokemonlist[i].age < 1.5){
-//       document.write(pokemonList[i].name + " is a medium pokemon");
-//   }
-// }
-
-
-
+}
