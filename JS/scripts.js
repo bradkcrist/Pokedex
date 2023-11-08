@@ -32,6 +32,10 @@ let pokemonRepository = (function () {
         add: add
     }
 })()
+// IIFE forEach() loop, going threw each of my pokemon
+// Biggest pokemon is = Wow thats a big pokemon
+// Added new pokemon to my Pokedex 
+pokemonRepository.add({name: 'Cyndaquil' , height: 1.0 , type: 'Fire'});
 
 pokemonRepository.getAll().forEach(pokemonList => {
     if (pokemonList.height > 2.5)
@@ -40,19 +44,3 @@ else if (pokemonList.height < 2.0) {
     document.write(pokemonList.name + '(Height:)' + pokemonList.height + '<br>')
 }
 });
-
-// function pokemon(pokemonList) {
-//   return pokemonList.name + pokemonList.height
-// }
-
-
-// Adding forEach() loop pokemon name and height greater then 2.5
-// Displaying else if for any other pokemon with height lower then 2.0
-
-// for (let i = 0; i < pokemonList.length; i++) {
-// if (pokemonList[i].height > 2.5)
-// document.write(pokemonList[i].name + ' (height:)' + pokemonList[i].height + "Wow thats a big pokemon" +  '<br>')
-//  else if (pokemonList[i].height < 2.0) {
-// document.write(pokemonList[i].name + '(height:)' + pokemonList[i].height + '<br>')
-// }
-// }
