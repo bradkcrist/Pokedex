@@ -33,8 +33,12 @@ let pokemonRepository = (function () {
     }
 })()
 
-pokemonList.forEach(pokemonList => {
-    document.write(pokemonList.name + '(Height:) ' + pokemonList.height + '<br>')
+pokemonRepository.getAll().forEach(pokemonList => {
+    if (pokemonList.height > 2.5)
+  document.write(pokemonList.name + '(Height:) ' + pokemonList.height + "Wow thats a big pokemon" + '<br>')
+else if (pokemonList.height < 2.0) {
+    document.write(pokemonList.name + '(Height:)' + pokemonList.height + '<br>')
+}
 });
 
 // function pokemon(pokemonList) {
@@ -47,8 +51,8 @@ pokemonList.forEach(pokemonList => {
 
 // for (let i = 0; i < pokemonList.length; i++) {
 // if (pokemonList[i].height > 2.5)
-// document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')' + "Wow thats a big pokemon" +  '<br>')
+// document.write(pokemonList[i].name + ' (height:)' + pokemonList[i].height + "Wow thats a big pokemon" +  '<br>')
 //  else if (pokemonList[i].height < 2.0) {
-// document.write(pokemonList[i].name + '(height' + pokemonList[i].height + ') ' + '<br>')
+// document.write(pokemonList[i].name + '(height:)' + pokemonList[i].height + '<br>')
 // }
 // }
