@@ -27,9 +27,19 @@ let pokemonRepository = (function () {
     function add(pokemon) {
         pokemonList.push(pokemon);
     }
+    function addListItem(pokemonList) {
+        let pokedex = document.querySelector('.pokemon-list');
+        let listpokemon = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = pokemonList.name;
+        button.classList.add('button-class');
+        listpokemon.appendChild(button);
+        pokedex.appendChild(listpokemon);
+    }
     return {
         getAll: getAll,
-        add: add
+        add: add,
+        addListItem: addListItem
     }
 })()
 // IIFE forEach() loop, going threw each of my pokemon
@@ -38,9 +48,13 @@ let pokemonRepository = (function () {
 pokemonRepository.add({name: 'Cyndaquil' , height: 1.0 , type: 'Fire'});
 
 pokemonRepository.getAll().forEach(pokemonList => {
-    if (pokemonList.height > 2.5)
-  document.write(pokemonList.name + '(Height:) ' + pokemonList.height + "Wow thats a big pokemon" + '<br>')
-else if (pokemonList.height < 2.0) {
-    document.write(pokemonList.name + '(Height:)' + pokemonList.height + '<br>')
-}
+    pokemonRepository.addListItem(pokemonList);
 });
+// pokemonRepository.add({name: 'Cyndaquil' , height: 1.0 , type: 'Fire'});
+// pokemonRepository.getAll().forEach(pokemonList => {
+// if (pokemonList.height > 2.5)
+//   document.write(pokemonList.name + '(Height:) ' + pokemonList.height + "Wow thats a big pokemon" + '<br>')
+// else if (pokemonList.height < 2.0) {
+// document.write(pokemonList.name + '(Height:)' + pokemonList.height + '<br>')
+// }
+// });
