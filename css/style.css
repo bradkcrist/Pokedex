@@ -1,3 +1,15 @@
+/*
+Color Used 
+Text color: Black #0d0d0c
+Border color: goldenrod
+Button styling for my Javascript 
+Styling and Color for my H1 in HTML
+*/
+h1{
+color: #0d0d0c;
+font-size: 45px;
+}
+
 .button-class {
     text-decoration: solid;
   padding: 10px;
