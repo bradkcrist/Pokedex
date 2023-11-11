@@ -21,12 +21,16 @@ let pokemonRepository = (function () {
         }
     ];
 
+    // Functions and Prameters
+
     function getAll() {
         return pokemonList;
     }
+
     function add(pokemon) {
         pokemonList.push(pokemon);
     }
+
     function addListItem(pokemonList) {
         let pokedex = document.querySelector('.pokemon-list');
         let listpokemon = document.createElement('li');
@@ -35,21 +39,39 @@ let pokemonRepository = (function () {
         button.classList.add('button-class');
         listpokemon.appendChild(button);
         pokedex.appendChild(listpokemon);
+        button.addEventListener('click', function (showDetails) {
+            console.log(pokemonList);
+        });
     }
+
+    function showDetails(pokemon) {
+        console.log(pokemon)
+    }
+
     return {
         getAll: getAll,
         add: add,
         addListItem: addListItem
     }
 })()
+
 // IIFE forEach() loop, going threw each of my pokemon
-// Biggest pokemon is = Wow thats a big pokemon
 // Added new pokemon to my Pokedex 
-pokemonRepository.add({name: 'Cyndaquil' , height: 1.0 , type: 'Fire'});
+// Simplified my foreach loop
+
+pokemonRepository.add({ name: 'Cyndaquil', height: 1.0, type: 'Fire' });
 
 pokemonRepository.getAll().forEach(pokemonList => {
     pokemonRepository.addListItem(pokemonList);
 });
+
+
+
+
+
+
+
+
 // pokemonRepository.add({name: 'Cyndaquil' , height: 1.0 , type: 'Fire'});
 // pokemonRepository.getAll().forEach(pokemonList => {
 // if (pokemonList.height > 2.5)
