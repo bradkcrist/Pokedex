@@ -1,5 +1,6 @@
 // IIFE Format : Immediatley Invoked Function Expression
 // PokdexIndex: Name, Height, Type
+
 let pokemonRepository = (function () {
 
     let pokemonList = [
