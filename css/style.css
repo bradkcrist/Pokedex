@@ -1,13 +1,19 @@
 /*
 Color Used 
-Text color: Black #0d0d0c
+Text color: Grey #4d5656
 Border color: goldenrod
 Button styling for my Javascript 
 Styling and Color for my H1 in HTML
 */
 h1{
-color: #0d0d0c;
-font-size: 45px;
+color: #4d5656;
+font-size: 50px;
+text-align: center;
+}
+
+li{
+  text-align: center;
+  list-style: none;
 }
 
 .button-class {
@@ -16,4 +22,24 @@ font-size: 45px;
   border-radius: 3px;
   border-bottom: 2px ;
   border-color: goldenrod;
+  font-size: 25px;
+}
+
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999; 
+  overflow: auto; 
+  display: grid;
+  text-align: center;
 }
