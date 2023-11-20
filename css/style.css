@@ -43,3 +43,7 @@ li{
   display: grid;
   text-align: center;
 }
+
+#modal-close {
+float: right;
+}
