@@ -3,101 +3,108 @@
 
 let pokemonRepository = (function () {
     let pokemonList = [];
-    let apiUrl= 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     let modalContainer = document.querySelector('#modal-container')
 
-// Functions and Prameters
-function getAll() {
-    return pokemonList;
-}
-
-function add(pokemon) {
-    pokemonList.push(pokemon);
-}
-
-function addListItem(pokemonList) {
-    let pokedex = document.querySelector('.pokemon-list');
-    let listpokemon = document.createElement('li');
-    let button = document.createElement('button');
-    button.innerText = pokemonList.name;
-    button.classList.add('button-class');
-    listpokemon.appendChild(button);
-    pokedex.appendChild(listpokemon);
-    button.addEventListener('click', function (event) {
-        showDetails(pokemonList);
-    });
-}
-
-function loadList() {
-    return fetch(apiUrl).then(function (response) {
-        return response.json();
-    }).then(function (json) {
-        json.results.forEach(function (item) {
-            let pokemon = {
-                name: item.name,
-                detailsUrl: item.url
-            };
-            add(pokemon);
-        });
-    }).catch(function (e) {
-        console.error(e);
-    })
-}
-
-function loadDetails(item) {
-    let url = item.detailsUrl;
-    return fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (details) {
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      item.types = details.types;
-    }).catch(function (e) {
-      console.error(e);
-    });
-  }
-
-function showDetails(pokemon) {
-   loadDetails(pokemon).then(function () {
-        showModal(pokemon);
-      });
+    // Functions and Prameters
+    function getAll() {
+        return pokemonList;
     }
 
-    function showModal(title,text){
+    function add(pokemon) {
+        pokemonList.push(pokemon);
+    }
+
+    function addListItem(pokemonList) {
+        let pokedex = document.querySelector('.pokemon-list');
+        let listpokemon = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = pokemonList.name;
+        button.classList.add('button-class');
+        listpokemon.appendChild(button);
+        pokedex.appendChild(listpokemon);
+        button.addEventListener('click', function (event) {
+            showDetails(pokemonList);
+        });
+    }
+
+    function loadList() {
+        return fetch(apiUrl).then(function (response) {
+            return response.json();
+        }).then(function (json) {
+            json.results.forEach(function (item) {
+                let pokemon = {
+                    name: item.name,
+                    detailsUrl: item.url
+                };
+                add(pokemon);
+            });
+        }).catch(function (e) {
+            console.error(e);
+        })
+    }
+
+    function loadDetails(item) {
+        let url = item.detailsUrl;
+        return fetch(url).then(function (response) {
+            return response.json();
+        }).then(function (details) {
+            item.imageUrl = details.sprites.front_default;
+            item.height = details.height;
+            item.types = details.types;
+        }).catch(function (e) {
+            console.error(e);
+        });
+    }
+
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function () {
+            showModal(pokemon);
+        });
+    }
+
+    function showModal(item) {
         modalContainer.innerHTML = '';
-        
-        let modal= document.createElement('div');
+
+        let modal = document.createElement('div');
         modal.classList.add('modal');
-    
-        let closeButtonElement= document.createElement('button');
+        // let myImage = document.querySelector('#pokemon-image')
+        
+
+        let closeButtonElement = document.createElement('button');
         closeButtonElement.classList.add('modal-close');
-        closeButtonElement.innerText= 'Close';
+        closeButtonElement.innerText = 'Close';
         closeButtonElement.addEventListener('click', hideModal);
-    
+
         let titleElement = document.createElement('h1');
-        titleElement.innerText = title;
-    
-        let contentElement = document.createElement('p');
-        contentElement.innerText = text;
-    
+        titleElement.innerText = item.name +('  ') + ('height:  ') + item.height;
+         
+        let textElement = document.createElement('p');
+        textElement.innerText = item.imageUrl;
+
+        //  let pokeImage = document.createElement('img');
+        //  pokeImage.src = item.imageUrl;
+         
+
         modal.appendChild(closeButtonElement);
         modal.appendChild(titleElement);
-        modal.appendChild(contentElement);
+        modal.appendChild(textElement);
+        // myImage.appenedChild(pokeImage);
         modalContainer.appendChild(modal);
-    
+
         modalContainer.classList.add('is-visible');
     }
-    function hideModal(){
+    function hideModal() {
         modalContainer.classList.remove('is-visible');
     }
-    
+
     window.addEventListener('keydown', (e) => {
         let modalContainer = document.querySelector('#modal-container');
-        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')){
+        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
             hideModal();
         }
     });
-    
+
     modalContainer.addEventListener('click', (e) => {
         let target = e.target;
         if (target === modalContainer) {
@@ -105,14 +112,14 @@ function showDetails(pokemon) {
         }
     });
 
-return {
-    getAll: getAll,
-    add: add,
-    addListItem: addListItem,
-    loadList: loadList,
-    loadDetails: loadDetails,
-    showDetails: showDetails
-};
+    return {
+        getAll: getAll,
+        add: add,
+        addListItem: addListItem,
+        loadList: loadList,
+        loadDetails: loadDetails,
+        showDetails: showDetails
+    };
 })();
 
 
