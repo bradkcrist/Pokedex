@@ -6,28 +6,41 @@ Button styling for my Javascript
 Styling and Color for my H1 in HTML
 */
 h1{
-color: #010b0b;
+color: #0370fd;
 font-size: 50px;
 text-align: center;
 }
+h1:first-letter {
+  text-transform:uppercase;
+ }
 
 li{
   text-align: center;
   list-style: none;
+  margin-bottom: 10px;
 }
 
 .button-class {
-    text-decoration: solid;
+  text-decoration: solid;
   padding: 10px;
   border-radius: 3px;
-  border-bottom: 2px ;
-  border-color: goldenrod;
   font-size: 25px;
+  border: 2px solid;
+  border-color: #daa520;
+}
+
+.modal{
+  background: white;
+  padding: 15px;
 }
 
 #modal-container {
   display: none;
 }
+
+.modal-close {
+  float: right;
+  }
 
 #modal-container.is-visible {
   position: fixed;
@@ -44,6 +57,3 @@ li{
   text-align: center;
 }
 
-#modal-close {
-float: right;
-}
