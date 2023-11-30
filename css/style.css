@@ -1,59 +1,43 @@
 /*
 Color Used 
-Text color: Grey #4d5656
-Border color: goldenrod
-Button styling for my Javascript 
-Styling and Color for my H1 in HTML
+Text color: whitesmoke
+Button color: goldenrod
+Border color: black
+Customized my NavBar
+Added styling to my my main elements
 */
-h1{
-color: #0370fd;
-font-size: 50px;
-text-align: center;
+.navbar {
+  background-color: #4d5656;
 }
-h1:first-letter {
-  text-transform:uppercase;
- }
 
-li{
+.navbar-text,
+.navbar-brand,
+.nav-link {
+  color: whitesmoke;
+}
+
+.navbar-toggler {
+  background-color: whitesmoke;
+}
+
+h1 {
+  color: #000000;
+  font-size: 50px;
+  text-align: center;
+  margin: 50px;
+}
+
+.modal-title:first-letter {
+  text-transform: uppercase;
+}
+
+li {
   text-align: center;
   list-style: none;
   margin-bottom: 10px;
 }
 
-.button-class {
-  text-decoration: solid;
-  padding: 10px;
-  border-radius: 3px;
-  font-size: 25px;
-  border: 2px solid;
-  border-color: #daa520;
+.my-1 {
+  background-color: goldenrod;
+  border-color: black;
 }
-
-.modal{
-  background: white;
-  padding: 15px;
-}
-
-#modal-container {
-  display: none;
-}
-
-.modal-close {
-  float: right;
-  }
-
-#modal-container.is-visible {
-  position: fixed;
-  padding: 20px;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999; 
-  overflow: auto; 
-  display: grid;
-  text-align: center;
-}
-
