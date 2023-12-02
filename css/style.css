@@ -41,3 +41,13 @@ li {
   background-color: goldenrod;
   border-color: black;
 }
+
+.my-1:hover {
+  background-color: #000000;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #4d5656;
+  border-color: goldenrod;
+}
