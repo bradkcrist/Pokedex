@@ -1,0 +1,39 @@
+h1,
+li {
+  text-align: center;
+}
+.navbar {
+  background-color: #4d5656;
+}
+.nav-link,
+.navbar-brand,
+.navbar-text {
+  color: #f5f5f5;
+}
+.navbar-toggler {
+  background-color: #f5f5f5;
+}
+h1 {
+  color: #000;
+  font-size: 50px;
+  margin: 50px;
+}
+.modal-title:first-letter {
+  text-transform: uppercase;
+}
+li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+.my-1 {
+  background-color: #daa520;
+  border-color: #000;
+}
+.my-1:hover {
+  background-color: #000;
+  border: none;
+}
+.btn-secondary {
+  background-color: #4d5656;
+  border-color: #daa520;
+}
